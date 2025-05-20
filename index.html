@@ -3,66 +3,64 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>8Bit Play</title>
   <link href="https://fonts.googleapis.com/css2?family=Monoton&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div id="intro-sound">
-    <audio id="introAudio" autoplay>
-      <source src="8bit_intro_sound.mp3" type="audio/mp3" />
+  <div id="splash">
+    <h1 id="site-title" class="monoton">8Bit Play</h1>
+    <audio id="intro-sound" autoplay>
+      <source src="8bit_intro_sound.mp3" type="audio/mpeg" />
     </audio>
+    <p>Cargando...</p>
   </div>
 
-  <div id="splash" class="fade-in">
-    <h1 class="logo">8Bit Play</h1>
-    <div class="loader">Cargando...</div>
-  </div>
-
-  <div id="profile-select" class="hidden fade-in">
-    <h2>¿Quién está viendo?</h2>
+  <div id="profile-select" class="hidden">
+    <h2>Selecciona tu perfil</h2>
     <div class="profiles">
-      <img src="gaelprofile.png" alt="Gael" onclick="selectProfile('Gael')" />
-      <img src="jasonprofile.png" alt="Jason" onclick="selectProfile('Jason')" />
-      <img src="bryanprofile.png" alt="Bryan" onclick="selectProfile('Bryan')" />
-      <img src="danielprofile.png" alt="Daniel" onclick="selectProfile('Daniel')" />
+      <img src="gaelprofile.webp" onclick="selectProfile('Gael')" />
+      <img src="jasonprofile.webp" onclick="selectProfile('Jason')" />
+      <img src="bryanprofile.webp" onclick="selectProfile('Bryan')" />
+      <img src="danielprofile.webp" onclick="selectProfile('Daniel')" />
     </div>
   </div>
 
-  <div id="main-menu" class="hidden fade-in">
-    <div class="top-bar">
+  <div id="main-menu" class="hidden">
+    <header>
       <span id="selected-profile"></span>
-      <button id="menu-toggle" onclick="toggleMenu()">☰</button>
-    </div>
+      <button onclick="toggleMenu()">☰</button>
+    </header>
     <div id="side-menu" class="hidden">
-      <button onclick="toggleMenu()">←</button>
-      <ul>
-        <li onclick="goToSection('home')">Inicio</li>
-        <li onclick="goToSection('series')">Series</li>
-        <li onclick="goToSection('movies')">Películas</li>
-        <li onclick="goToSection('trending')">Tendencias</li>
-        <li onclick="goToSection('new')">Nuevos lanzamientos</li>
-        <li onclick="resetProfile()">Selección de perfil</li>
-        <li onclick="logout()">Cerrar sesión</li>
-      </ul>
+      <button onclick="goToSection('Inicio')">Inicio</button>
+      <button onclick="goToSection('Series')">Series</button>
+      <button onclick="goToSection('Películas')">Películas</button>
+      <button onclick="goToSection('Tendencias')">Tendencias</button>
+      <button onclick="goToSection('Nuevos lanzamientos')">Nuevos lanzamientos</button>
+      <button onclick="resetProfile()">Seleccionar perfil</button>
+      <button onclick="logout()">Cerrar sesión</button>
     </div>
-    <div id="content">
+    <main>
       <div class="media-card" onclick="openSerie()">
-        <img src="seriecover.png" alt="8Bit Crew: La Serie">
+        <img src="seriecover.webp" />
         <p>8Bit Crew: La Serie</p>
       </div>
       <div class="media-card" onclick="openMovie()">
-        <img src="moviecover.png" alt="8Bit Crew: La película">
+        <img src="moviecover.webp" />
         <p>8Bit Crew: La Película</p>
       </div>
-    </div>
+    </main>
   </div>
 
-  <div id="media-view" class="hidden fade-in">
-    <div id="media-banner"></div>
-    <div id="media-options"></div>
-    <button onclick="goBackToMenu()">← Regresar</button>
+  <div id="media-view" class="hidden">
+    <div id="media-banner" class="fade-dark">
+      <!-- Imagen desde JS -->
+    </div>
+    <div id="media-options">
+      <!-- Botones dinámicos -->
+    </div>
+    <button onclick="goBackToMenu()">Regresar al menú</button>
   </div>
 
   <script src="app.js"></script>
