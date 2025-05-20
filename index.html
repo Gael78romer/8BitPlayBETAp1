@@ -1,0 +1,70 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>8Bit Play</title>
+  <link href="https://fonts.googleapis.com/css2?family=Monoton&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="intro-sound">
+    <audio id="introAudio" autoplay>
+      <source src="8bit_intro_sound.mp3" type="audio/mp3" />
+    </audio>
+  </div>
+
+  <div id="splash" class="fade-in">
+    <h1 class="logo">8Bit Play</h1>
+    <div class="loader">Cargando...</div>
+  </div>
+
+  <div id="profile-select" class="hidden fade-in">
+    <h2>¿Quién está viendo?</h2>
+    <div class="profiles">
+      <img src="gaelprofile.png" alt="Gael" onclick="selectProfile('Gael')" />
+      <img src="jasonprofile.png" alt="Jason" onclick="selectProfile('Jason')" />
+      <img src="bryanprofile.png" alt="Bryan" onclick="selectProfile('Bryan')" />
+      <img src="danielprofile.png" alt="Daniel" onclick="selectProfile('Daniel')" />
+    </div>
+  </div>
+
+  <div id="main-menu" class="hidden fade-in">
+    <div class="top-bar">
+      <span id="selected-profile"></span>
+      <button id="menu-toggle" onclick="toggleMenu()">☰</button>
+    </div>
+    <div id="side-menu" class="hidden">
+      <button onclick="toggleMenu()">←</button>
+      <ul>
+        <li onclick="goToSection('home')">Inicio</li>
+        <li onclick="goToSection('series')">Series</li>
+        <li onclick="goToSection('movies')">Películas</li>
+        <li onclick="goToSection('trending')">Tendencias</li>
+        <li onclick="goToSection('new')">Nuevos lanzamientos</li>
+        <li onclick="resetProfile()">Selección de perfil</li>
+        <li onclick="logout()">Cerrar sesión</li>
+      </ul>
+    </div>
+    <div id="content">
+      <div class="media-card" onclick="openSerie()">
+        <img src="seriecover.png" alt="8Bit Crew: La Serie">
+        <p>8Bit Crew: La Serie</p>
+      </div>
+      <div class="media-card" onclick="openMovie()">
+        <img src="moviecover.png" alt="8Bit Crew: La película">
+        <p>8Bit Crew: La Película</p>
+      </div>
+    </div>
+  </div>
+
+  <div id="media-view" class="hidden fade-in">
+    <div id="media-banner"></div>
+    <div id="media-options"></div>
+    <button onclick="goBackToMenu()">← Regresar</button>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
