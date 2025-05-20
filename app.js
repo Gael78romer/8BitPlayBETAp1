@@ -6,7 +6,7 @@ function selectProfile(name) {
     document.getElementById('splash').classList.add('hidden');
     document.getElementById('main-menu').classList.remove('hidden');
     document.getElementById('selected-profile').innerText = name;
-  }, 2000);
+  }, 500); // Reducido de 2000 a 500ms
 }
 
 function toggleMenu() {
